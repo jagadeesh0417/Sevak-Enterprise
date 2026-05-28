@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Sevak-Enterprise/',
+  base: process.env.NODE_ENV === 'production' ? '/Sevak-Enterprise/' : '/',
 })
