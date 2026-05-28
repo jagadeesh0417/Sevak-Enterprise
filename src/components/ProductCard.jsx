@@ -1,0 +1,88 @@
+import { motion } from 'framer-motion'
+import { FaShoppingBag, FaWhatsapp, FaLeaf } from 'react-icons/fa'
+
+export default function ProductCard({ product, index = 0 }) {
+  const whatsappMessage = encodeURIComponent(
+    `Hi! I'm interested in purchasing ${product.name} from SEVAK Enterprises.`
+  )
+
+  const renderPrice = () => {
+    if (product.variants) {
+      return (
+        <div className="space-y-1">
+          {product.variants.map((v, i) => (
+            <p key={i} className="text-cream/80 text-sm">
+              {v.name}: <span className="text-gold font-semibold">₹{v.price}</span>
+            </p>
+          ))}
+        </div>
+      )
+    }
+    return (
+      <p className="text-2xl font-bold text-gold">₹{product.price}</p>
+    )
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+      className="group relative"
+    >
+      <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-dark-brown to-deep-green premium-shadow-lg transition-all duration-500 hover:scale-[1.02]">
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-brown via-dark-brown/50 to-transparent z-10" />
+
+        <div className="aspect-[4/3] relative overflow-hidden">
+          <div className="w-full h-full bg-gradient-to-br from-dark-brown to-deep-green flex items-center justify-center">
+            <FaLeaf className="text-gold/20 text-6xl" />
+          </div>
+          {product.image && (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+              onError={(e) => {
+                e.target.style.display = 'none'
+              }}
+            />
+          )}
+        </div>
+
+        <div className="absolute top-4 left-4 z-20">
+          <span className="px-3 py-1 text-xs font-medium uppercase tracking-wider bg-gold/90 text-dark-brown rounded-full">
+            {product.badge}
+          </span>
+        </div>
+
+        <div className="relative z-20 p-6 -mt-16">
+          <h3 className="text-xl font-serif font-bold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
+            {product.name}
+          </h3>
+          <p className="text-cream/60 text-sm mb-4 line-clamp-2 leading-relaxed">
+            {product.description}
+          </p>
+          {renderPrice()}
+
+          <div className="flex gap-2 mt-5">
+            <a
+              href={`https://wa.me/919908275998?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-xl transition-all duration-300"
+            >
+              <FaWhatsapp className="text-lg" />
+              <span>Order</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-gold/10 via-transparent to-transparent" />
+        </div>
+      </div>
+    </motion.div>
+  )
+}
