@@ -43,7 +43,7 @@ export default function Shop() {
               placeholder="Search products..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-dark-brown/5 border border-gold/20 text-dark-brown placeholder-dark-brown/30 focus:outline-none focus:border-gold/50 transition-colors text-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-dark-brown/10 border border-gold/30 text-dark-brown placeholder-dark-brown/50 focus:outline-none focus:border-gold transition-colors text-sm"
             />
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function Shop() {
               className={`px-5 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${
                 activeCategory === cat
                   ? 'bg-dark-brown text-cream shadow-lg'
-                  : 'bg-dark-brown/5 text-dark-brown/60 hover:bg-dark-brown/10'
+                  : 'bg-dark-brown/10 text-dark-brown/80 hover:bg-dark-brown/20'
               }`}
             >
               {cat}

@@ -15,7 +15,7 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #FAF6F0;
+    background-color: #D4A853;
     color: #2C1810;
     overflow-x: hidden;
   }
@@ -53,7 +53,7 @@
   }
 
   .glass-card-light {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(44, 24, 16, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(201, 169, 110, 0.2);

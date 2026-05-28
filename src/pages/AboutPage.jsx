@@ -92,13 +92,13 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group p-8 rounded-2xl bg-dark-brown/5 border border-gold/10 hover:bg-dark-brown/10 hover:border-gold/30 transition-all duration-500"
+                className="group p-8 rounded-2xl bg-dark-brown border border-gold/20 hover:border-gold/40 transition-all duration-500"
               >
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors duration-500">
+                <div className="w-14 h-14 rounded-xl bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors duration-500">
                   <Icon className="text-2xl text-gold" />
                 </div>
-                <h3 className="text-dark-brown font-serif text-xl font-semibold mb-3">{value.title}</h3>
-                <p className="text-dark-brown/60 text-sm leading-relaxed">{value.desc}</p>
+                <h3 className="text-cream font-serif text-xl font-semibold mb-3">{value.title}</h3>
+                <p className="text-cream/60 text-sm leading-relaxed">{value.desc}</p>
               </motion.div>
             )
           })}

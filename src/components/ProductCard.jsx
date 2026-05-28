@@ -68,7 +68,7 @@ export default function ProductCard({ product, index = 0 }) {
 
           <div className="flex gap-2 mt-5">
             <a
-              href={`https://wa.me/919908275998?text=${whatsappMessage}`}
+              href={`https://wa.me/918008984983?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-xl transition-all duration-300"

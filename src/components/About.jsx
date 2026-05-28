@@ -29,7 +29,7 @@ export default function About() {
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-brown to-deep-green" />
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-off-white to-transparent opacity-10" />
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gold/20 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

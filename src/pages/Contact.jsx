@@ -67,42 +67,42 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="space-y-6"
           >
-            <div className="p-6 sm:p-8 rounded-2xl bg-dark-brown/5 border border-gold/10 hover:border-gold/30 transition-all duration-500">
+            <div className="p-6 sm:p-8 rounded-2xl bg-dark-brown border border-gold/20 hover:border-gold/40 transition-all duration-500">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
                   <FaWhatsapp className="text-xl text-gold" />
                 </div>
                 <div>
-                  <h4 className="text-dark-brown font-serif font-semibold text-lg mb-1">WhatsApp</h4>
-                  <a href="https://wa.me/919908275998" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-dark-brown transition-colors">
-                    +91 9908275998
+                  <h4 className="text-cream font-serif font-semibold text-lg mb-1">WhatsApp</h4>
+                  <a href="https://wa.me/918008984983" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-light-gold transition-colors">
+                    +91 8008984983
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-dark-brown/5 border border-gold/10 hover:border-gold/30 transition-all duration-500">
+            <div className="p-6 sm:p-8 rounded-2xl bg-dark-brown border border-gold/20 hover:border-gold/40 transition-all duration-500">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
                   <FaEnvelope className="text-xl text-gold" />
                 </div>
                 <div>
-                  <h4 className="text-dark-brown font-serif font-semibold text-lg mb-1">Email</h4>
-                  <a href="mailto:sevakenterprises@gmail.com" className="text-gold hover:text-dark-brown transition-colors break-all">
+                  <h4 className="text-cream font-serif font-semibold text-lg mb-1">Email</h4>
+                  <a href="mailto:sevakenterprises@gmail.com" className="text-gold hover:text-light-gold transition-colors break-all">
                     sevakenterprises@gmail.com
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-dark-brown/5 border border-gold/10 hover:border-gold/30 transition-all duration-500">
+            <div className="p-6 sm:p-8 rounded-2xl bg-dark-brown border border-gold/20 hover:border-gold/40 transition-all duration-500">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
                   <FaInstagram className="text-xl text-gold" />
                 </div>
                 <div>
-                  <h4 className="text-dark-brown font-serif font-semibold text-lg mb-1">Instagram</h4>
-                  <a href="https://instagram.com/sevak_enterprises_" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-dark-brown transition-colors">
+                  <h4 className="text-cream font-serif font-semibold text-lg mb-1">Instagram</h4>
+                  <a href="https://instagram.com/sevak_enterprises_" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-light-gold transition-colors">
                     @sevak_enterprises_
                   </a>
                 </div>

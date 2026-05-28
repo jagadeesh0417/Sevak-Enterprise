@@ -61,12 +61,12 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://wa.me/919908275998"
+                  href="https://wa.me/918008984983"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cream/50 hover:text-gold text-sm transition-colors duration-300 flex items-center gap-2"
                 >
-                  <FaWhatsapp className="text-gold" /> +91 9908275998
+                  <FaWhatsapp className="text-gold" /> +91 8008984983
                 </a>
               </li>
               <li>

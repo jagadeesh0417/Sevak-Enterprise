@@ -66,7 +66,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="https://wa.me/919908275998"
+              href="https://wa.me/918008984983"
               target="_blank"
               rel="noopener noreferrer"
               className={`p-2 rounded-full transition-all duration-300 hover:bg-gold/20 ${
@@ -79,7 +79,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 lg:hidden">
             <a
-              href="https://wa.me/919908275998"
+              href="https://wa.me/918008984983"
               target="_blank"
               rel="noopener noreferrer"
               className={`p-2 rounded-full transition-all duration-300 ${
