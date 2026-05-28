@@ -22,7 +22,7 @@ export default function AboutPage() {
           className="text-center mb-14"
         >
           <span className="text-gold text-sm tracking-[0.25em] uppercase font-medium">About Us</span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-dark-brown mt-3 mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-cream mt-3 mb-4">
             Our Story
           </h1>
           <div className="w-20 h-0.5 bg-gradient-to-r from-gold to-light-gold mx-auto" />
@@ -76,7 +76,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-dark-brown mt-3 mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cream mt-3 mb-4">
             Our Values
           </h2>
           <div className="w-20 h-0.5 bg-gradient-to-r from-gold to-light-gold mx-auto" />

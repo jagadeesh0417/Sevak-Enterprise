@@ -59,7 +59,7 @@ export default function CartDrawer({ open, onClose }) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 z-[70] h-full w-full max-w-md bg-gradient-to-b from-dark-brown to-deep-green shadow-2xl border-l border-gold/20"
+            className="fixed top-0 right-0 z-[70] h-full w-full max-w-md bg-black/90 backdrop-blur-xl shadow-2xl border-l border-gold/20"
           >
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-6 border-b border-gold/10">
@@ -96,7 +96,7 @@ export default function CartDrawer({ open, onClose }) {
                             animate={{ opacity: 1, x: 0 }}
                             className="flex gap-4 p-4 rounded-xl bg-cream/5 border border-gold/10"
                           >
-                            <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center text-2xl flex-shrink-0">
+                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center text-2xl flex-shrink-0 border border-gold/10">
                               {item.icon || '📦'}
                             </div>
                             <div className="flex-1 min-w-0">

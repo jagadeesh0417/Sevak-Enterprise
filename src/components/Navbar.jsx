@@ -13,7 +13,7 @@ const navLinks = [
   { name: 'Contact', path: '/contact' },
 ]
 
-export default function Navbar({ onCartOpen }) {
+export default function Navbar({ onCartOpen, onWishlistOpen }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
@@ -41,93 +41,96 @@ export default function Navbar({ onCartOpen }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-light-gold flex items-center justify-center">
-              <span className="text-dark-brown font-serif font-bold text-lg">S</span>
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-gold to-light-gold flex items-center justify-center shadow-lg shadow-gold/20">
+              <span className="text-dark-brown font-serif font-bold text-base sm:text-lg">S</span>
             </div>
-            <span className={`font-serif text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-              scrolled ? 'text-dark-brown' : 'text-cream'
+            <span             className={`font-serif text-lg sm:text-xl font-bold tracking-wide transition-colors duration-300 ${
+              scrolled ? 'text-cream' : 'text-cream'
             }`}>
               SEVAK
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative text-sm font-medium uppercase tracking-wider transition-all duration-300 group ${
-                  scrolled ? 'text-dark-brown' : 'text-cream'
+                className={`relative text-xs font-medium uppercase tracking-[0.12em] transition-all duration-300 group ${
+                  scrolled ? 'text-cream/80 hover:text-cream' : 'text-cream/80 hover:text-cream'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gold transition-all duration-300 ${
+                <span className={`absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-300 ${
                   location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </Link>
             ))}
-            <Link
-              to="/wishlist"
-              className={`relative p-2 rounded-full transition-all duration-300 hover:bg-gold/20 ${
-                scrolled ? 'text-dark-brown' : 'text-cream'
+
+            <button
+              onClick={onWishlistOpen}
+              className={`relative p-2 rounded-full transition-all duration-300 ${
+                scrolled ? 'text-cream' : 'text-cream'
               }`}
             >
-              <FaHeart className="text-lg" />
+              <FaHeart className="text-base" />
               {wishlistItems.length > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center font-bold">
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-red-500 text-white text-[9px] flex items-center justify-center font-bold shadow-lg">
                   {wishlistItems.length}
                 </span>
               )}
-            </Link>
+            </button>
+
             <button
               onClick={onCartOpen}
-              className={`relative p-2 rounded-full transition-all duration-300 hover:bg-gold/20 ${
-                scrolled ? 'text-dark-brown' : 'text-cream'
+              className={`relative p-2 rounded-full transition-all duration-300 hover:bg-gold/15 ${
+                scrolled ? 'text-cream' : 'text-cream'
               }`}
             >
-              <FaShoppingBag className="text-lg" />
+              <FaShoppingBag className="text-base" />
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-gold text-dark-brown text-[10px] flex items-center justify-center font-bold">
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-gold text-dark-brown text-[9px] flex items-center justify-center font-bold shadow-lg">
                   {count}
                 </span>
               )}
             </button>
+
             <a
               href="https://wa.me/918008984983"
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-2 rounded-full transition-all duration-300 hover:bg-gold/20 ${
-                scrolled ? 'text-dark-brown' : 'text-cream'
+              className={`p-2 rounded-full transition-all duration-300 hover:bg-gold/15 ${
+                scrolled ? 'text-cream' : 'text-cream'
               }`}
             >
-              <FaWhatsapp className="text-xl" />
+              <FaWhatsapp className="text-base" />
             </a>
           </div>
 
-          <div className="flex items-center gap-3 lg:hidden">
-            <Link
-              to="/wishlist"
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={onWishlistOpen}
               className={`relative p-2 rounded-full transition-all duration-300 ${
-                scrolled ? 'text-dark-brown' : 'text-cream'
+                scrolled ? 'text-cream' : 'text-cream'
               }`}
             >
-              <FaHeart className="text-lg" />
+              <FaHeart className="text-base" />
               {wishlistItems.length > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center font-bold">
+                <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-red-500 text-white text-[8px] flex items-center justify-center font-bold">
                   {wishlistItems.length}
                 </span>
               )}
-            </Link>
+            </button>
             <button
               onClick={onCartOpen}
               className={`relative p-2 rounded-full transition-all duration-300 ${
-                scrolled ? 'text-dark-brown' : 'text-cream'
+                scrolled ? 'text-cream' : 'text-cream'
               }`}
             >
-              <FaShoppingBag className="text-lg" />
+              <FaShoppingBag className="text-base" />
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-gold text-dark-brown text-[10px] flex items-center justify-center font-bold">
+                <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-gold text-dark-brown text-[8px] flex items-center justify-center font-bold">
                   {count}
                 </span>
               )}
@@ -135,10 +138,10 @@ export default function Navbar({ onCartOpen }) {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className={`p-2 rounded-lg transition-all duration-300 ${
-                scrolled ? 'text-dark-brown' : 'text-cream'
+                scrolled ? 'text-cream' : 'text-cream'
               }`}
             >
-              {mobileOpen ? <HiOutlineX className="text-2xl" /> : <HiOutlineMenu className="text-2xl" />}
+              {mobileOpen ? <HiOutlineX className="text-xl" /> : <HiOutlineMenu className="text-xl" />}
             </button>
           </div>
         </div>
@@ -153,33 +156,29 @@ export default function Navbar({ onCartOpen }) {
             transition={{ duration: 0.3 }}
             className="lg:hidden glass-card-light border-t border-gold/10"
           >
-            <div className="px-4 py-6 space-y-1">
+            <div className="px-4 py-5 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
+                  className={`block px-4 py-3 rounded-xl text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
                     location.pathname === link.path
                       ? 'bg-gold/20 text-gold'
-                      : 'text-dark-brown hover:bg-gold/10'
+                      : 'text-cream/70 hover:bg-gold/10'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/wishlist"
-                className={`block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
-                  location.pathname === '/wishlist'
-                    ? 'bg-gold/20 text-gold'
-                    : 'text-dark-brown hover:bg-gold/10'
-                }`}
+              <button
+                onClick={() => { onWishlistOpen(); setMobileOpen(false) }}
+                className="w-full text-left block px-4 py-3 rounded-xl text-xs font-medium uppercase tracking-wider text-cream/70 hover:bg-gold/10 transition-all duration-300"
               >
                 Wishlist ({wishlistItems.length})
-              </Link>
+              </button>
               <button
                 onClick={() => { onCartOpen(); setMobileOpen(false) }}
-                className="w-full text-left block px-4 py-3 rounded-xl text-sm font-medium uppercase tracking-wider text-dark-brown hover:bg-gold/10 transition-all duration-300"
+                className="w-full text-left block px-4 py-3 rounded-xl text-xs font-medium uppercase tracking-wider text-cream/70 hover:bg-gold/10 transition-all duration-300"
               >
                 Cart ({count})
               </button>

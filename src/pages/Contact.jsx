@@ -14,7 +14,7 @@ export default function Contact() {
           className="text-center mb-14"
         >
           <span className="text-gold text-sm tracking-[0.25em] uppercase font-medium">Get in Touch</span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-dark-brown mt-3 mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-cream mt-3 mb-4">
             Contact Us
           </h1>
           <div className="w-20 h-0.5 bg-gradient-to-r from-gold to-light-gold mx-auto" />

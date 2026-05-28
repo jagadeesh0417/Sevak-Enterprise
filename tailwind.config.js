@@ -12,7 +12,7 @@ export default {
         'gold': '#C9A96E',
         'deep-green': '#1B4332',
         'light-gold': '#E8D5A3',
-        'off-white': '#D4A853',
+        'off-white': '#0D0D0D',
         'charcoal': '#1A1A1A',
       },
       fontFamily: {

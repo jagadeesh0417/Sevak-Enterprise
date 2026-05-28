@@ -29,7 +29,7 @@ export default function Shop() {
           className="text-center mb-12"
         >
           <span className="text-gold text-sm tracking-[0.25em] uppercase font-medium">Our Collection</span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-dark-brown mt-3 mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-cream mt-3 mb-4">
             Shop Spiritual Essentials
           </h1>
           <div className="w-20 h-0.5 bg-gradient-to-r from-gold to-light-gold mx-auto" />
@@ -43,7 +43,7 @@ export default function Shop() {
               placeholder="Search products..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-dark-brown/10 border border-gold/30 text-dark-brown placeholder-dark-brown/50 focus:outline-none focus:border-gold transition-colors text-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-dark-brown/30 border border-gold/30 text-cream placeholder-cream/30 focus:outline-none focus:border-gold transition-colors text-sm"
             />
           </div>
         </div>
@@ -55,8 +55,8 @@ export default function Shop() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${
                 activeCategory === cat
-                  ? 'bg-dark-brown text-cream shadow-lg'
-                  : 'bg-dark-brown/10 text-dark-brown/80 hover:bg-dark-brown/20'
+                  ? 'bg-gold text-dark-brown shadow-lg'
+                  : 'bg-dark-brown/40 text-cream/70 hover:bg-dark-brown/60'
               }`}
             >
               {cat}
