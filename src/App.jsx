@@ -1,19 +1,23 @@
+import { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import CartDrawer from './components/CartDrawer'
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Contact from './pages/Contact'
 import AboutPage from './pages/AboutPage'
+import Wishlist from './pages/Wishlist'
 
 function App() {
   const location = useLocation()
+  const [cartOpen, setCartOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-off-white">
-      <Navbar />
+      <Navbar onCartOpen={() => setCartOpen(true)} />
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
@@ -27,9 +31,11 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/wishlist" element={<Wishlist />} />
           </Routes>
         </motion.main>
       </AnimatePresence>
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Footer />
       <WhatsAppButton />
     </div>

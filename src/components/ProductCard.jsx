@@ -1,11 +1,26 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaShoppingBag, FaWhatsapp, FaLeaf } from 'react-icons/fa'
-import OrderModal from './OrderModal'
+import { FaShoppingBag, FaHeart, FaRegHeart, FaLeaf, FaCheck } from 'react-icons/fa'
+import { useCart } from '../context/CartContext'
+import { useWishlist } from '../context/WishlistContext'
 
 export default function ProductCard({ product, index = 0 }) {
-  const [showModal, setShowModal] = useState(false)
+  const { addItem } = useCart()
+  const { toggleItem, isWishlisted } = useWishlist()
   const [imgError, setImgError] = useState(false)
+  const [added, setAdded] = useState(false)
+
+  const wishlisted = isWishlisted(product.id)
+
+  const handleAddToCart = () => {
+    if (product.variants) {
+      addItem(product, product.variants[0].name)
+    } else {
+      addItem(product)
+    }
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1500)
+  }
 
   const renderPrice = () => {
     if (product.variants) {
@@ -25,68 +40,80 @@ export default function ProductCard({ product, index = 0 }) {
   }
 
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-50px' }}
-        transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
-        className="group relative"
-      >
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-dark-brown to-deep-green premium-shadow-lg transition-all duration-500 hover:scale-[1.02]">
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-brown via-dark-brown/50 to-transparent z-10" />
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+      className="group relative"
+    >
+      <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-dark-brown to-deep-green premium-shadow-lg transition-all duration-500 hover:scale-[1.02]">
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-brown via-dark-brown/50 to-transparent z-10" />
 
-          <div className="aspect-[4/3] relative overflow-hidden">
-            {product.image && !imgError ? (
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-                onError={() => setImgError(true)}
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-dark-brown to-deep-green flex items-center justify-center">
-                <span className="text-6xl">{product.icon || '📦'}</span>
-              </div>
-            )}
-          </div>
-
-          <div className="absolute top-4 left-4 z-20">
-            <span className="px-3 py-1 text-xs font-medium uppercase tracking-wider bg-gold/90 text-dark-brown rounded-full">
-              {product.badge}
-            </span>
-          </div>
-
-          <div className="relative z-20 p-6 -mt-16">
-            <h3 className="text-xl font-serif font-bold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
-              {product.name}
-            </h3>
-            <p className="text-cream/60 text-sm mb-4 line-clamp-2 leading-relaxed">
-              {product.description}
-            </p>
-            {renderPrice()}
-
-            <div className="flex gap-2 mt-5">
-              <button
-                onClick={() => setShowModal(true)}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-xl transition-all duration-300"
-              >
-                <FaWhatsapp className="text-lg" />
-                <span>Order Now</span>
-              </button>
+        <div className="aspect-[4/3] relative overflow-hidden">
+          {product.image && !imgError ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-dark-brown to-deep-green flex items-center justify-center">
+              <span className="text-6xl">{product.icon || '📦'}</span>
             </div>
-          </div>
+          )}
+        </div>
 
-          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-gold/10 via-transparent to-transparent" />
+        <div className="absolute top-4 left-4 z-20">
+          <span className="px-3 py-1 text-xs font-medium uppercase tracking-wider bg-gold/90 text-dark-brown rounded-full">
+            {product.badge}
+          </span>
+        </div>
+
+        <button
+          onClick={() => toggleItem(product)}
+          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-dark-brown/60 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:scale-110"
+        >
+          {wishlisted ? (
+            <FaHeart className="text-red-400 text-base" />
+          ) : (
+            <FaRegHeart className="text-cream/70 text-base hover:text-red-400 transition-colors" />
+          )}
+        </button>
+
+        <div className="relative z-20 p-6 -mt-16">
+          <h3 className="text-xl font-serif font-bold text-cream mb-2 group-hover:text-gold transition-colors duration-300">
+            {product.name}
+          </h3>
+          <p className="text-cream/60 text-sm mb-4 line-clamp-2 leading-relaxed">
+            {product.description}
+          </p>
+          {renderPrice()}
+
+          <div className="flex gap-2 mt-5">
+            <button
+              onClick={handleAddToCart}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl transition-all duration-300 ${
+                added
+                  ? 'bg-green-600 text-white'
+                  : 'bg-gold text-dark-brown hover:bg-light-gold'
+              }`}
+            >
+              {added ? (
+                <><FaCheck className="text-lg" /><span>Added</span></>
+              ) : (
+                <><FaShoppingBag className="text-lg" /><span>Add to Cart</span></>
+              )}
+            </button>
           </div>
         </div>
-      </motion.div>
 
-      {showModal && (
-        <OrderModal product={product} onClose={() => setShowModal(false)} />
-      )}
-    </>
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-gold/10 via-transparent to-transparent" />
+        </div>
+      </div>
+    </motion.div>
   )
 }
